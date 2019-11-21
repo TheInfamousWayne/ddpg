@@ -125,6 +125,7 @@ if __name__ == "__main__":
 
 #    env = NormalizedEnv(gym.make(args.env))
     env = gym.make(args.env)
+    env.setRealTimeSimulation()
 
     if args.seed > 0:
         np.random.seed(args.seed)
