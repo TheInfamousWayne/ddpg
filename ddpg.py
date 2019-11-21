@@ -135,7 +135,7 @@ class DDPG(object):
         action *= [1.57, 1.35, 3] # self.env.action_space.low
         action += self.is_training * max(self.epsilon, 0) * self.random_process.sample()
         action = np.clip(action, self.env.action_space.low, self.env.action_space.high)
-
+    
         if decay_epsilon:
             self.epsilon -= self.depsilon
         

@@ -28,7 +28,7 @@ def train(num_iterations, agent, env,  evaluate, validate_steps, output, max_epi
             action = agent.random_action()
         else:
             action = agent.select_action(observation)
-        
+        env.render()
         # env response with next_observation, reward, terminate_info
         print(action)
         observation2, reward, done, info = env.step(action)
@@ -96,7 +96,7 @@ if __name__ == "__main__":
     parser.add_argument('--prate', default=0.0001, type=float, help='policy net learning rate (only for DDPG)')
     parser.add_argument('--warmup', default=20000, type=int, help='time without training but only filling the replay memory')
     parser.add_argument('--discount', default=0.99, type=float, help='')
-    parser.add_argument('--bsize', default=64, type=int, help='minibatch size')
+    parser.add_argument('--bsize', default=128, type=int, help='minibatch size')
     parser.add_argument('--rmsize', default=6000000, type=int, help='memory size')
     parser.add_argument('--window_length', default=1, type=int, help='')
     parser.add_argument('--tau', default=0.001, type=float, help='moving average for target network')
