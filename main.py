@@ -1,5 +1,3 @@
-#!/usr/bin/env python3 
-
 import numpy as np
 import argparse
 from copy import deepcopy
@@ -125,7 +123,7 @@ if __name__ == "__main__":
 
 #    env = NormalizedEnv(gym.make(args.env))
     env = gym.make(args.env)
-    env.setRealTimeSimulation()
+    #env.setRealTimeSimulation()
 
     if args.seed > 0:
         np.random.seed(args.seed)
