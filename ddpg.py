@@ -130,12 +130,10 @@ class DDPG(object):
         action = to_numpy(
             self.actor(to_tensor(np.array([s_t])))
         ).squeeze(0)
-#        action = np.add(self.env.action_space.low,
-#                        action * np.subtract(self.env.action_space.high, self.env.action_space.low))
-        action *= [1.57, 1.35, 3] # self.env.action_space.low
+        action *= self.env.action_space.high #[1.57, 1.35, 3] # self.env.action_space.low
         action += self.is_training * max(self.epsilon, 0) * self.random_process.sample()
         action = np.clip(action, self.env.action_space.low, self.env.action_space.high)
-    
+        
         if decay_epsilon:
             self.epsilon -= self.depsilon
         
