@@ -48,4 +48,4 @@ Run
 
 TODO
 ======
-
+Add batch normalization
